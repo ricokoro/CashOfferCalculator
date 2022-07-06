@@ -95,8 +95,9 @@ public class Main {
         //Creates new property object and outputs cash offer to console
         Property property = new SingleFamilyHome(address, numBedrooms, numBathrooms, livingAreaSize, newFloors,
                 newPaint, newKitchen, newBathrooms, newRoof, newHVAC, foundationIssues, ARV);
-        System.out.println("Northstate Equity's Cash Offer: ");
-        System.out.println(new DecimalFormat("$#,##0.00").format(property.getOffer()));
+        System.out.println("Northstate Equity's Cash Offer Range: ");
+        System.out.println(new DecimalFormat("$#,##0.00").format(property.getOfferRange()[0]) + " to " +
+                new DecimalFormat("$#,##0.00").format(property.getOfferRange()[1]));
 
     }
 }

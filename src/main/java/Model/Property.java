@@ -25,8 +25,11 @@ public interface Property {
     /** Returns living area square footage in property */
     int getLivingAreaSize();
 
-    /** Returns cash offer range */
+    /** Returns cash offer */
     double getOffer();
+
+    /** Returns cash offer range*/
+    double[] getOfferRange();
 
     /** Returns ARV */
     int getARV();

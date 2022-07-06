@@ -109,6 +109,34 @@ public class SingleFamilyHome implements Property{
     }
 
     @Override
+    public double[] getOfferRange(){
+        double rehabBudget = 0;
+        if(newFloors)
+            rehabBudget += (4.75 * livingAreaSize);
+        if(newPaint)
+            rehabBudget += (2.75 * livingAreaSize);
+        if(newKitchen)
+            rehabBudget += 12000;
+        if(newBathrooms)
+            rehabBudget += (5000 * numBathrooms);
+        if(newRoof)
+            rehabBudget += 11000;
+        if(newHVAC)
+            rehabBudget += 6000;
+        switch(foundationIssues){
+            case 1:
+                rehabBudget += 15000;
+            case 2:
+                rehabBudget += 50000;
+        }
+        double[] offerRange = new double[2];
+        offerRange[1] = ((ARV * 0.75) - rehabBudget - 5000);
+        offerRange[0] = (((ARV * 0.9) * 0.75) - (rehabBudget * 1.25) - 5000);
+
+        return offerRange;
+    }
+
+    @Override
     public int getARV(){
         return ARV;
     }
